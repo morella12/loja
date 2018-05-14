@@ -1,0 +1,17 @@
+/* Comando pra automatição de compilação sass
+	sass --watch nomeArquivoSASS.scss:nomeArquivoCSS.css
+*/
+
+.hello {
+  stroke-dasharray: 7746;
+  animation: 15s write;
+}
+
+@keyframes write {
+  0% {
+    stroke-dashoffset: 7746; // tamanho inicial
+  }
+  100% {
+    stroke-dashoffset: 0; // tamanho final
+  }
+}

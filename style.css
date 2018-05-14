@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* Comando pra automati├º├úo de compila├º├úo sass
+	sass --watch nomeArquivoSASS.scss:nomeArquivoCSS.css
+*/
+.logo
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.botao 
+{
+  border-radius: 100px !important;
+  border: solid 1px #000 !important;
+  background: none !important;
+}
+.botoes-home
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lt-produtos
+{
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+a.remover
+{
+  color: #fb3f3f;
+}
+a.removera.remover
+{
+ color: red !important;
+}
+.remover, .editar
+{
+  margin: 3px !important;
+}
+input, textarea {
+    margin-bottom: 10px !important;
+}
