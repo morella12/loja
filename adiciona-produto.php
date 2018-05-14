@@ -5,8 +5,15 @@ include('bancoArquivo.php');
 $nome = $_POST['nome'];
 $preco = $_POST['preco'];
 $descricao = $_POST['descricao'];
+$categoria = $_POST['cat'];
 
-if(insereProduto($dao,$nome,$preco,$descricao))
+if (array_key_exists('usado', $_POST))
+	$usado = '1';
+
+else
+	$usado = '0';
+
+if(insereProduto($dao,$nome,$preco,$descricao,$categoria,$usado))
 {
 	?>
 		<script>
