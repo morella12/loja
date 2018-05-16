@@ -19,53 +19,51 @@ include('bancoArquivo.php');
 			</tr>
 		</thead>
 		<tbody>
-<?php
-$produtos = listar($dao,'produto');
-foreach($produtos as $produto)
-{
-	if ($produto['nome'] != null || $produto['nome'] != "")
-	{
-	?>
-			<tr>
-				<td>
-					<?=$produto['id']?>
-				</td>
-				<td>
-					<?=$produto['nome']?>
-				</td>
-				<td>
-					<?=$produto['preco']?>
-				</td>
-				<td>
-					<?=$produto['catnome']?>
-				</td>
-				<td>
+			<?php
+			$produtos = listar($dao,'produto');
+			foreach($produtos as $produto)
+			{
+				if ($produto['nome'] != null || $produto['nome'] != "")
+				{ ?>
+					<tr>
+						<td>
+							<?=$produto['id']?>
+						</td>
+						<td>
+							<?=$produto['nome']?>
+						</td>
+						<td>
+							<?=$produto['preco']?>
+						</td>
+						<td>
+							<?=$produto['catnome']?>
+						</td>
+						<td>
+							<?php
+							if($produto['usado'] == '0')
+								print_r('Novo');
+							else
+								print_r("Usado");
+							?>
+						<td>
+							<?=substr($produto['descricao'], 0, 15)?>
+						</td>
+						
+						<td class="ui buttons">
+							<form action="cadastrar-produto.php" method="post" >
+								<input type="hidden" name="id" value="<?=$produto['id']?>">
+								<button class="ui button editar" name="botao" value="editar"><i class="edit icon"></i> Editar </button> 
+							</form>
+							<form action="removerProduto.php" method="post">
+								<input type="hidden" name="id" value="<?=$produto['id']?>">
+								<button class="ui button editar" name="botao" value="editar"><i class="trash icon"></i> Remover </button> 
+							</form>
+						</td>
+					</tr>
 					<?php
-					if($produto['usado'] == '0')
-						print_r('Novo');
-					else
-						print_r("Usado");
-					?>
-				<td>
-					<?=substr($produto['descricao'], 0, 15)?>
-				</td>
-				
-				<td class="ui buttons">
-					<form action="cadastro.php" method="post" >
-						<input type="hidden" name="id" value="<?=$produto['id']?>">
-						<button class="ui button editar" name="botao" value="editar"><i class="edit icon"></i> Editar </button> 
-					</form>
-					<form action="removerProduto.php" method="post">
-						<input type="hidden" name="id" value="<?=$produto['id']?>">
-						<button class="ui button editar" name="botao" value="editar"><i class="trash icon"></i> Remover </button> 
-					</form>
-				</td>
-			</tr>
-		<?php
-		}
-
-}
-?>
+				}
+			}
+			?>
 		</tbody>
 	</table>
 <?php

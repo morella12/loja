@@ -15,9 +15,7 @@ function listar($conexao,$tabela)
 
 function insereProduto($dao,$nome,$preco,$descricao,$categoria,$usado)
 {
-	$query = "insert into produto (nome, preco, descricao, categoria, usado) values ('{$nome}', '{$preco}','{$descricao}','{$categoria}','{$usado}')";
-	echo $query;
-	return $dao -> query($query);
+	return $dao -> query("insert into produto (nome, preco, descricao, categoria, usado) values ('{$nome}', '{$preco}','{$descricao}','{$categoria}','{$usado}')");
 }
 
 function removerProduto($dao,$id)
@@ -25,4 +23,12 @@ function removerProduto($dao,$id)
     return $dao -> query("delete from produto where id = {$id}");
 }
 
-function editaProduto($dao,$id)
+function alteraProduto($dao,$nome,$preco,$descricao,$categoria,$usado,$id)
+{
+	return $dao -> query("update produto set nome = '{$nome}', preco = '{$preco}', descricao = '{$descricao}', categoria = {$categoria}, usado = '{$usado}' where id = {$id}");
+}
+
+function editarProduto($dao,$id)
+{
+	return $dao -> query("select * from produto where id = '{$id}'");
+}
