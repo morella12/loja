@@ -19,8 +19,10 @@
 <body>
 <div class="ui container">
 	<div class="ui left fixed vertical menu">
-		<div class="item">
-			<a href="index.php">EGCE</a>
+		<div class="item" id="logo">
+			<a href="index.php">
+				<?php include('imagens/egce.svg');?>
+			</a>
 		</div>
 		<a class="item" href="cadastrar-produto.php">Cadastro de Produto</a>
 		<a class="item" href="produto-lista.php">Lista de Produto</a>
@@ -33,4 +35,4 @@
 		    </div>
 		</div>
 	</div>
-  		
+  	<div class="ui container">	

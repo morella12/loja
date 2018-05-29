@@ -32,3 +32,10 @@ function editarProduto($dao,$id)
 {
 	return $dao -> query("select * from produto where id = '{$id}'");
 }
+
+function verificarUsuario($dao,$email,$senha)
+{
+	$senha = md5($senha);
+	$resultado =  $dao -> query("select * from usuario where email = '{$email}' and senha = '{$senha}'");
+	return mysqli_fetch_assoc($resultado);
+}

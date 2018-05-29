@@ -6,4 +6,3 @@ if(mysqli_connect_errno())
 	printf('Não foi possível conectar ', mysqli_connect_errno());
 	exit();
 }
-
