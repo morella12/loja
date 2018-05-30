@@ -3,36 +3,46 @@ include("cabecalho.php");
 include("conecta.php");
 include("bancoArquivo.php");
 
-$categorias = listar($dao,'categorias');
-
-?>
-<div class="conteudo">
-		<div class="colunas">
-			<h1>Ficha Cadastro do Produtos</h1>
-			<form class="ui form" method="post" action="adiciona-produto.php">
-<?php
-if(!isset($_POST['id']))
+if(!isset($_COOKIE['usuario_logado']))
 {
+	echo"<script>
+		alert('Usuário não registrado. Por favor entre com um usuário validado ou se registre com o administrador!');
+	</script>";
+	header("Refresh:0; url=index.php");
+}
+
+else
+{
+	$categorias = listar($dao,'categorias');
+
 	?>
-				<input type="text" name="nome" placeholder="Nome do produto">
-				<input type="checkbox" name="usado" value="false"> Usado
-				<select name="cat">
-					<option value="" hidden="">Categorias</option>
-					<?php
-						foreach ($categorias as $categoria)
-						{?>
-							<option  value="<?=$categoria['id']?>"> <?=$categoria['nome']?> </option>
-						<?php
-						}
-					?>
-				</select>
-				<input type="number" name="preco" placeholder="Preço do produto">
-				<textarea name="descricao" placeholder="Descrção"></textarea>
-				<button class="ui black button" type="submit">Salva</button>
-			</form>
-		</div>
-	</div>
+	<div class="conteudo">
+			<div class="colunas">
+				<h1>Ficha Cadastro do Produtos</h1>
+				<form class="ui form" method="post" action="adiciona-produto.php">
 	<?php
+	if(!isset($_POST['id']))
+	{
+		?>
+					<input type="text" name="nome" placeholder="Nome do produto">
+					<input type="checkbox" name="usado" value="false"> Usado
+					<select name="cat">
+						<option value="" hidden="">Categorias</option>
+						<?php
+							foreach ($categorias as $categoria)
+							{?>
+								<option  value="<?=$categoria['id']?>"> <?=$categoria['nome']?> </option>
+							<?php
+							}
+						?>
+					</select>
+					<input type="number" name="preco" placeholder="Preço do produto">
+					<textarea name="descricao" placeholder="Descrção"></textarea>
+					<button class="ui black button" type="submit">Salva</button>
+				</form>
+			</div>
+		</div>
+		<?php
 	}
 
 	else
@@ -85,4 +95,7 @@ if(!isset($_POST['id']))
 			<?php
 		}
 	}
+}
+
+
 include("rodape.php") ?>

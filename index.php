@@ -11,20 +11,16 @@ include("bancoArquivo.php");
 	<h3>Por favor efetue o login para obter o acesso!</h3>
 	<div class="ui cards">
 		<div class="card">
-			<form action="login.php" method="post">
+			<form class="ui form login" action="login.php" method="post">
 				<div class="content">
-					<i class="user circle icon"></i>
-					<div class="header">Login</div>
+					<i class="user circle icon user-img"></i>
+					<div class="header"><h3>Login</h3></div>
 					<div class="meta">Entre com o seu usúario e senha.</div>
-					<div class="description">	
-						<table>
-							<tr>
-								<td class="ui input"><input type="email" name="email" placeholder="E-mail" /></td>
-							</tr>
-							<tr>
-								<td class="ui input"><input type="password" name="senha" placeholder="Senha" /></td>
-							</tr>
-						</table>
+					<div class="description">
+						<div class="field">
+							<input type="email" name="email" placeholder="E-mail" />
+							<input type="password" name="senha" placeholder="Senha" />
+						</div>
 					</div>
 				</div>
 				<div class="extra content">

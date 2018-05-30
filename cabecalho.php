@@ -19,13 +19,18 @@
 <body>
 <div class="ui container">
 	<div class="ui left fixed vertical menu">
-		<div class="item" id="logo">
+		<div class="item logo">
 			<a href="index.php">
-				<?php include('imagens/egce.svg');?>
+				<img class="logo" src="imagens/egce.png"/>
 			</a>
 		</div>
-		<a class="item" href="cadastrar-produto.php">Cadastro de Produto</a>
-		<a class="item" href="produto-lista.php">Lista de Produto</a>
+		<?php 
+			if(isset($_COOKIE['usuario_logado']))
+			{?>
+				<p class="item" id="msg-user">Olá <?=$_COOKIE["usuario_logado"]?></p>
+			<?php
+			}
+		?>
 		<div class="right menu">
 			<div class="item">
 		    	<div class="ui transparent icon input">
@@ -34,5 +39,8 @@
 		    	</div>
 		    </div>
 		</div>
+		<a class="item" href="cadastrar-produto.php">Cadastro de Produto</a>
+		<a class="item" href="produto-lista.php">Lista de Produto</a>
+		
 	</div>
   	<div class="ui container">	

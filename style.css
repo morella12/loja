@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .botao 
 {
@@ -48,4 +49,17 @@ input, textarea {
   border: none;
   padding: 3%;
   height: 100vh - 5px;
+}
+
+.form.login {
+    padding: 5%;
+    text-align: center;
+}
+
+.user-img:before {
+    font-size: 45px;
+}
+.user-img {
+    width: 45px !important;
+    height: 45px !important;
 }
